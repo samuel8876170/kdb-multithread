@@ -1,4 +1,4 @@
-/ q client.q -p <port number> -t <timer> -writerList <path to writer list file>.txt -serverList <path to server list file>.txt
+/ q allocator.q -p <port number> -t <timer> -writerList <path to writer list file>.txt -serverList <path to server list file>.txt
 
 //  Force positive port
 $[.multhr.config.port:abs system"p"; system"p ",string .multhr.config.port; '"Port must be set and should not change manually during the process runtime."];
