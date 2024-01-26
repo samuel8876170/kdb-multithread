@@ -1,0 +1,2 @@
+export QMULTITHREAD=/src/q/kdb-multithread/src
+export QMULTITHREAD_TEST=/src/q/kdb-multithread/test

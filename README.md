@@ -1,1 +1,1 @@
-1. Set environement variable `QMULTITHREAD` to directory of the repository
+1. Set environement variable `QMULTITHREAD` to src directory of the repository
