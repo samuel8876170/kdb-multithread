@@ -105,16 +105,18 @@
     timeUsed2: hs@\:"timeUsed";
     @[;"exit 0";{}]each hs;
 
-    -1 "max reading time in multi-thread mode:",(string max timeUsed1),"ms less than min reading time in normal mode:",(string min timeUsed2),"ms.";
-    -1 "avg reading time in multi-thread mode:",(string avg timeUsed1),"ms less than avg reading time in normal mode:",(string avg timeUsed2),"ms.";
-    -1 "med reading time in multi-thread mode:",(string med timeUsed1),"ms less than med reading time in normal mode:",(string med timeUsed2),"ms.";
+    -1 "multhr   vs   normal";
+    -1 "min time: ",(string min timeUsed1),"ms   ;   ",(string min timeUsed2),"ms.";
+    -1 "max time: ",(string max timeUsed1),"ms   ;   ",(string max timeUsed2),"ms.";
+    -1 "avg time: ",(string avg timeUsed1),"ms   ;   ",(string avg timeUsed2),"ms.";
+    -1 "med time: ",(string med timeUsed1),"ms   ;   ",(string med timeUsed2),"ms.";
 
-    .qunit.assertTrue[(max timeUsed1) < min timeUsed2; "Test group A processes using multi-threaded read mode read faster than group B normal processes"];
-    .qunit.assertTrue[(avg timeUsed1) < avg timeUsed2; "Test group A processes using multi-threaded read mode read faster than group B normal processes"];
-    .qunit.assertTrue[(med timeUsed1) < med timeUsed2; "Test group A processes using multi-threaded read mode read faster than group B normal processes"];
+    .qunit.assertTrue[(max timeUsed1) < min timeUsed2; "Maximum time used to read by Multi-threaded readers faster than Minimum time used to read by normal readers"];
+    .qunit.assertTrue[(avg timeUsed1) < avg timeUsed2; "Average time used to read by Multi-threaded readers faster than Average time used to read by normal readers"];
+    .qunit.assertTrue[(med timeUsed1) < med timeUsed2; "Median time used to read by Multi-threaded readers faster than Median time used to read by normal readers"];
     };
 
-.multhrTest.tearDown: { @[; "exit 0"; {}] each key .z.W };
+.multhrTest.tearDown: { @[; "exit 0"; {}] each key .z.W; .qunit.wait 00:00:05 };
 
 .multhrTest.afterNamespace: { delete config, command from `.multhrTest };
 

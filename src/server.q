@@ -1,3 +1,5 @@
+/ q -p <port number> -t <timer>
+
 .multhr.token: ([password:`u#`$()] time:"p"$(); role:`$());
 .multhr.addToken: {[password; role] .multhr.token,: (password; .z.P; role) };
 
