@@ -41,6 +41,8 @@ q) serverH "query"
 - Aggregate 30 time used for both groups
 
 ### Result
+- [Full Result](./test/result.log)
+
 | time used (in ms) | Normal    | Multi-threaded | Difference (%) |
 | -                 | -         | -              | -              |
 | minimum           | 4435      | 3536           | -20.2706       |
